@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="image"
+      property="og:image"
+      content="https://raw.githubusercontent.com/sucodelarangela/alura-geek/master/images/og-image.png"
+    />
+    <meta name="author" content="Angela Caldas" />
+    <meta
+      name="description"
+      content="All about placing concrete..."
+    />
+    <link rel="icon" href="/images/pacman.svg" type="image/icon type" width="5"/>
+    <title>Placing boom | <%- title %></title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles/index.css" />
+  </head>
+
+  <body>
+    <!-- Cabeçalho -->
+    <header class="header container">
+      <div>
+        <a class="header__logo" href="/" id="header">
+          <img
+            class="header__logo--img"
+            src="/images/logo.svg"
+            alt="Loja Alura Geek"
+
+          />
+        </a>
+        <form action="/search" method="POST" class="header__form">
+          <label for="h__input" class="sr-only">
+            Enter what you want to find
+          </label>
+          <input
+            type="search"
+            id="h__input"
+            name="search"
+            class="header__input"
+            minlength="3"
+            placeholder="What do you want to find?"
+          />
+          <button type="submit" style="display: none"></button>
+        </form>
+      </div>
+      <%- button %>
+      <!-- <a class="header__button button__void button" href="login">Login</a> -->
+      <i class="header__search icon-search"></i>
+      <i class="header__search icon-plus"></i>
+    </header>
+
+    <main>
+      <!-- The page will render the correct page according to the URL/routes -->
+      <%- include(`parts/${page}`) %>
+
+
+    </main>
+
+    <!-- Contato -->
+    <section class="contact container">
+      <div class="contact__links">
+        <a class="contact__links--logo" href="#header">
+          <img src="/images/logo.svg" alt="Loja Alura Geek" />
+        </a>
+        <ul>
+          <li><a href="#">Who are we?</a></li>
+          <li><a href="#">Privacy policy</a></li>
+          <li><a href="#">Loyalty program</a></li>
+          <li><a href="#">Our stores</a></li>
+          <li><a href="#">I want to be a franchisee</a></li>
+          <li><a href="#">Advertise here</a></li>
+        </ul>
+      </div>
+
+      <form action="https://formspree.io/" class="contact__form">
+        <fieldset>
+          <legend>Contact us</legend>
+          <label for="name" class="sr-only">Write your name</label>
+          <input
+            id="name"
+            type="text"
+            class=""
+            data-type="contact"
+            maxlength="40"
+            placeholder="Name"
+            required
+          />
+          <span role="alert"></span>
+          <label for="message" class="sr-only">Write your message</label>
+          <textarea
+            name=""
+            id="message"
+            class=""
+            data-type="contact"
+            placeholder="Write your message"
+            maxlength="120"
+            required
+          ></textarea>
+          <span role="alert"></span>
+          <button type="submit" class="button__blue button">
+            Send Message
+          </button>
+        </fieldset>
+      </form>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <a
+        href="https://angelacaldas.vercel.app"
+        target="_blank"
+        aria-labelledby="portfolio"
+      >
+
+      </a>
+      <p id="portfolio">
+        Developed by Tuna Demirel
+        <span class="sr-only">(Ver portfolio)</span>
+      </p>
+      <p>2023</p>
+    </footer>
+
+    <!-- MODAL -->
+    <div class="modal-wrapper">
+      <div class="modal">
+        <h2>Delete Product</h2>
+        <p>Are you sure you want to delete this product?</p>
+        <form action="#" method="POST">
+          <!-- Method POST to send data do backend. The action (which will be the URL) will be defined with JS -->
+          <label class="sr-only" for="password">Confirm your Admin password</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Confirme sua senha"
+            required
+          />
+          <div class="buttons">
+            <div class="button button__blue cancel">Cancel</div>
+            <button class="button button__red delete">Yes, exclude</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script type="module" src="/scripts/main.js"></script>
+    <script type="module" src="/scripts/forms.js"></script>
+    <script src="/scripts/drag-n-drop.js"></script>
+    <script src="https://github.com/codermarcos/simple-mask-money/releases/download/v3.0.0/simple-mask-money.js"></script>
+  </body>
+</html>

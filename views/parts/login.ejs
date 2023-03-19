@@ -1,0 +1,31 @@
+<section class="login container">
+  <form action="/todos-os-produtos" method="POST" class="login__form">
+    <fieldset>
+      <legend>Begin session</legend>
+      <label for="email" class="sr-only">Write your email</label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class=""
+        placeholder="Write your email"
+        data-type="email"
+        required
+      />
+      <span role="alert"></span>
+      <label for="pass" class="sr-only">Write your password</label>
+      <input
+        type="password"
+        name="password"
+        id="pass"
+        class=""
+        placeholder="Write your password"
+        data-type="pass"
+        pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?!.*[!@#$%^&*_=+-]).{6,12}$"
+        required
+      />
+      <span role="alert"></span>
+      <button type="submit" class="button__blue button">Enter</button>
+    </fieldset>
+  </form>
+</section>

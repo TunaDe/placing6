@@ -1,0 +1,103 @@
+<section class="admin container">
+  <!-- Adicionar produto -->
+  <form
+    action="/produto&id<%= item.id %>"
+    method="POST"
+    class="contact__form"
+    data-id="<%= item.id %>"
+  >
+    <fieldset>
+      <legend>Add new product</legend>
+      <div>
+        <input
+          type="text"
+          class="img--src"
+          name="imageSrc"
+          value="<%= item.image %>"
+          hidden
+          aria-hidden="true"
+        />
+        <div class="drag__area active" style="padding: 0;">
+          <img src="<%= item.image %>" alt="<%= item.altText %>">
+        </div>
+        <span>or</span>
+        <label for="product__image" class="product__image--label"></label>
+        <input
+          type="file"
+          name="file"
+          id="product__image"
+          class="product__image--input"
+          accept="image/*"
+        />
+      </div>
+      <label for="product__name" class="sr-only">Product's name</label>
+      <input
+        type="text"
+        name="prodName"
+        id="product__name"
+        placeholder="Nome do produto"
+        data-type="name"
+        value="<%= item.name %>"
+        required
+      />
+      <span role="alert"></span>
+      <label for="product__price" class="sr-only">Price of the product</label>
+      <input
+        type="text"
+        name="price"
+        inputmode="numeric"
+        id="product__price"
+        placeholder="Preço do produto"
+        data-type="price"
+        value="<%= item.price %>"
+        required
+      />
+      <span role="alert"></span>
+      <label for="product__description" class="sr-only"
+        >Product Description</label
+      >
+      <textarea
+        name="description"
+        id="product__description"
+        placeholder="Descrição do produto"
+        data-type="description"
+        required
+      >
+<%= item.description %></textarea
+      >
+      <span role="alert"></span>
+      <label for="product__image--alt" class="sr-only"
+        >Alternative text for the image</label
+      >
+      <textarea
+        name="imgAlt"
+        id="product__image--alt"
+        placeholder="Texto alternativo"
+        data-type="alternate"
+        required
+      >
+<%= item.altText %></textarea
+      >
+      <span role="alert"></span>
+      <label for="product__category" class="sr-only"
+        >Product category</label
+      >
+      <select
+        name="category"
+        id="product__category"
+        data-type="category"
+        value="<%= item.category %>"
+        required
+      >
+        <option value="" disabled>Select a category:</option>
+        <option value="star-wars" <%= item.category == 'star-wars' ? 'selected' : '' %>>Placing booms</option>
+        <option value="videogames" <%= item.category == 'videogames' ? 'selected' : '' %>>Light equipment</option>
+        <option value="diversos" <%= item.category == 'diversos' ? 'selected' : '' %>>Mixing Pumps</option>
+      </select>
+      <span role="alert"></span>
+      <button type="submit" class="button__blue button">
+        Add product
+      </button>
+    </fieldset>
+  </form>
+</section>

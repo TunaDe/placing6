@@ -1,0 +1,98 @@
+<section class="admin container">
+  <!-- Adicionar produto -->
+  <form
+    action="/produto&id<%= productId %>"
+    method="POST"
+    class="contact__form"
+    data-id="<%= productId %>"
+  >
+    <fieldset>
+      <legend>Add new product</legend>
+      <div>
+        <input
+          type="text"
+          class="img--src"
+          name="imageSrc"
+          hidden
+          aria-hidden="true"
+        />
+        <div class="drag__area">
+          <p class="drag__area--text">
+            Drag to add an image for the product
+          </p>
+        </div>
+        <span>or</span>
+        <label for="product__image" class="product__image--label"></label>
+        <input
+          type="file"
+          name="file"
+          id="product__image"
+          class="product__image--input"
+
+          accept="image/*"
+        />
+      </div>
+      <label for="product__name" class="sr-only">Product's name</label>
+      <input
+        type="text"
+        name="prodName"
+        id="product__name"
+        placeholder="Name of the product"
+        data-type="name"
+        required
+      />
+      <span role="alert"></span>
+      <label for="product__price" class="sr-only">Type of product</label>
+      <input
+        type="text"
+        name="price"
+        inputmode="numeric"
+        id="product__price"
+        placeholder="Type of product"
+
+        required
+      />
+      <span role="alert"></span>
+      <label for="product__description" class="sr-only"
+        >Product Description</label
+      >
+      <textarea
+        name="description"
+        id="product__description"
+        placeholder="Product Description"
+        data-type="description"
+        required
+      ></textarea>
+      <span role="alert"></span>
+      <label for="product__image--alt" class="sr-only"
+        >Alternative text for the image</label
+      >
+      <textarea
+        name="imgAlt"
+        id="product__image--alt"
+        placeholder="Alternative text for the image"
+        data-type="alternate"
+        required
+      ></textarea>
+      <span role="alert"></span>
+      <label for="product__category" class="sr-only"
+        >Product category</label
+      >
+      <select
+        name="category"
+        id="product__category"
+        data-type="category"
+        required
+      >
+        <option value="" selected disabled>Select a category:</option>
+        <option value="star-wars">Placing booms</option>
+        <option value="videogames">Light equipment</option>
+        <option value="diversos">Mixing Pumps</option>
+      </select>
+      <span role="alert"></span>
+      <button type="submit" class="button__blue button">
+        Add product
+      </button>
+    </fieldset>
+  </form>
+</section>
